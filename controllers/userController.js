@@ -5,7 +5,7 @@ const userModel = require("../models/userModel");
 const signUp = async (req, res) => {
   const { userName, email, mobileNumber, password } = req.body;
   try {
-    loggedInUser = await userModel.findOne({ mobileNumber:mobileNumber });
+    loggedInUser = await userModel.findOne({ mobileNumber: mobileNumber });
     if (loggedInUser) {
       res.status(400).send({ status: "error", msg: "user already exist" });
       return;
